@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&display=swap"
+     rel="stylesheet"> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment I</title>
+    <!--link rel="stylsheet" href="/assignment 1/styleindex.css"--> 
+    <style>
+
+        body{
+            background-color: aliceblue;
+            margin: 0;
+            padding: 0;
+        
+        }
+        
+        *{
+            box-sizing: border-box;
+        }
+        .navbar{
+            display: flex;
+            justify-content:start;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            margin: 3px;
+        
+        }
+        .navbar-space{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+        }
+
+        .logo-img{
+            width: 100px;
+            background-image: url(images.jpg);
+            height: 100px;
+            border-radius: 50%; /*this is imprtant for  creating circle in logos*/
+            border: 2px solid #e5f0e5;
+            display: inline;
+        }
+        
+        .brand-title{
+            margin: 1.5rem 1.5rem 1.5rem 0rem;
+            font-size: 2rem;
+            font-family: 'Orbitron';
+            text-shadow: -5px 5px 4px black;
+        
+        }
+        .underline{ /*inorder to underline the title of the last word*/
+            border-bottom: 3px solid white;
+        }
+        
+        .navbar-link ul{
+            display: flex;
+            margin: 0;
+            padding: 0;
+            justify-content: start;
+            align-items:flex-end;
+            margin-right: 10px;
+            margin-top: 40px;
+           
+        
+        }
+        
+        .navbar-link li{
+            list-style:none;
+            display: flex;
+            justify-content: start;
+            align-items: flex-end;
+        }
+        
+        .navbar-link li a{
+            text-decoration: none;
+            color: rgb(236, 221, 250);
+            padding:1rem;
+            display: inline;
+            border-radius: 10px;
+            text-shadow: -3px 0 1px black;
+        
+        }
+
+
+        .navbar-link li a:hover{
+            background-color:rgb(48, 137, 214);
+            text-shadow: -3px 0 3px rgb(32, 44, 54);
+            box-shadow: 2px 2px 0px gray;
+
+        }
+
+
+
+        .toggle-btn{
+            position: absolute;
+          
+            top: 1.75rem;
+            right:5rem;
+            display: flex;
+            flex-direction:column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            align-items: center;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            background-color: transparent;
+
+        }
+
+        .toggle-btn .bar{
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            
+        }
+        @media (min-width:795px){
+            .brand-title{
+                font-size: 60px;
+            }
+            .toggle-btn{
+                display: none;
+            }
+        }
+        @media (max-width: 844px){
+            .logo-img{
+            display: none;}
+        }
+        
+        @media (max-width: 794px){
+            .brand-title{
+                margin: 1rem;
+                font-size: 2rem;
+                font-family: 'Orbitron';
+                text-shadow: -5px 5px 4px black;
+            
+            }
+            
+            
+
+            .toggle-btn{
+                display: flex;
+            }
+            .navbar-link {
+               display: none;
+               width: 100%;
+            }
+            .navbar{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .navbar-link ul{
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .navbar-link li{
+                text-align: center;
+            }
+
+            .navbar-link li a{
+                padding: .5rem;
+
+            }
+
+            .navbar-link.active{
+                display: flex;
+            }
+           
+        }
+        .content{
+            display: grid;
+            grid-template-columns: repeat(12, [col-start] 1fr);
+            gap: 15px;
+        }
+        
+
+        .main-footer{
+            margin-top: 30px;
+            padding-top: 35px;
+            padding-bottom: 30px;
+            background-color: #000000;
+            border-color: 0;
+            color: #ddd;
+
+            padding-right:  15px;
+            padding-left: 15px;
+            
+            border-top: 1px solid #ddd;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+          }
+          .footer-container{
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+            text-align: center;
+        }
+        
+
+        .main-footer div.row{
+            margin-bottom: 35px;
+          }
+           .row{
+            display:block;
+           }
+        
+        
+          #contact, #address{
+            line-height: 2;
+        
+          }
+        
+          #contact> span, #address> span{
+            font-size: 1.3em;
+        
+          }
+          
+          .list-items{
+            list-style:none ;
+          }
+          .list-items ul{
+            text-decoration: none;
+            text-align: center;
+          }
+          .list-items li{
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            list-style: none;
+          }
+          .list-items a{
+            color: white;
+            text-decoration: none;
+            
+
+          }
+          .list-items a:hover{
+            background-color: transparent;
+            color: rgb(71, 99, 174);
+          }
+        
+          #address p{
+            color:#557c3e;
+            font-size: 1em;
+            line-height: 1.8;
+          }
+        
+          #testimonials{
+            font-size: 25px;
+          }
+          #testimonials p:nth-child(2){
+            margin-top: 25px;
+          }/*this is the end for the footer*/
+          .copyright{
+            margin: 2px;
+            text-align: center;
+          }
+
+
+          @media (max-width:767px){
+            .main-footer section{
+                margin-bottom: 30px;
+                text-align: center;
+              }
+          
+              .main-footer section:nth-child(3){
+                margin-bottom: 0;/* this for the margin to exist in the whole row*/
+              }
+          
+              .main-footer section hr{
+                width:50%;
+              }/*this is the end for the main page*/
+              .straight-line{
+                display: block !important;
+              }
+          }
+          @media (min-width:768px){
+            .columnsmall-4{        /*the 12 grid layout is implemented in this section*/
+                width: 33.33%;
+            }
+            .footer-container{
+                width: 700px;
+            }
+            .row{
+                display: flex;
+                align-items: center;
+            }
+            .straight-line{
+                display: none;
+              }
+          }
+          @media (min-width: 992px) {
+            .footer-container {
+              width: 970px;
+            }
+          }
+          @media (min-width: 1200px) {
+            .footer-container {
+              width: 1170px;
+            }
+          }
+        
+
+    </style>
+    <script>
+        const toggleButton=document.getElementsByClassName('toggle-btn')[0]
+        const navbarlink=document.getElementsByClassName('navbar-link')[0]
+
+        toggleButton.addEventListener('click',()=>{
+            navbarlink.classList.toggle('active')
+        })
+    </script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-img">
+            
+        </div>
+        
+        <div class="brand-title" >BD<span class="underline">C</span></div>
+        <a href="#" class="toggle-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-link">
+            <ul>
+                <li>             
+                    <a href="Home_page.html">Home</a>
+                    <a href="#">Donate blood</a>
+                    <a href="About.html">about</a>
+                    <a href="Contact.html">contact</a>                
+                    <a href="Learn_more.html">learn more</a>
+                    <a href="My_Account.html">my account</a>
+                        
+                </li>
+            </ul>
+        </div>
+        
+
+    </nav>
+
+    <div>
+        <form>
+            <div>
+                <div><label>Name*</label><input type="text" name="name" required></div><br>
+                <div><label>Email*</label><input type="email" name="name" required></div><br>
+                <div><label>Phone*</label><input type="text" name="name" required></div><br>
+                <div><label>City*</label><input type="text" name="name" required></div><br>
+            </div>    
+            <div>
+                <label>Country*</label>  
+                    <select>
+                        <option value="Please select">Please select</option>
+                        <option value="Djibouty">Djibouty</option>
+                        <option value="Ertirea">Ertirea</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Somalia">somalia</option>
+                        <option value="South sudan">south sudan</option>
+                        <option value="Sudan">Sudan</option>
+                    </select>
+            </div><br>
+            <div>
+                <label>Blood type*</label>  
+                    <select>
+                        <option value="Please select">Please select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB">AB</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        
+                    </select>
+            </div><br>
+    
+            <div><label>Age*</label><input type="number" name="num" min="18" max="65"><br>
+            <div> <label>Weight*</label><input type="number" name="num" min="45"></div>
+            </div><br>
+    
+            <div>
+                <p>Is there any history of surgery or blood transfusion in the past six months?</p>
+                <input type="radio" name="res" value="YES">YES<br>
+                <input type="radio" name="res" value="NO">NO<br>
+            </div>
+    
+            <div>
+                <p>Are you taking or have you taken any type of antibiotics in the past 72 hours?</p>
+                <input type="radio" name="res" value="YES">YES<br>
+                <input type="radio" name="res" value="NO">NO<br>
+            </div>
+    
+            <div><label>Do you suffer from or have suffered from any of the following diseases?</label> 
+                <select>
+                    <option value="Please select if you ">Please select if you</option>
+                    <option value="Heart disease">Heart disease</option>
+                    <option value="HIV AIDS">HIV AIDS</option>
+                    <option value="Diabets">Diabets</option>
+                    <option value="Cancer/Malignant Disease">Cancer/Malignant Disease</option>
+                    <option value="Sexually Transmitted Diseases">Sexually Transmitted Diseases</option>
+                    <option value="Allergic Disease">Allergic</option>
+                    <option value="Kidney Disease">Kidney Disease</option>
+                    <option value="Tuberclosis">Tuberclosis</option>
+                    <option value="Hepatitis B/C">Hepatitis B/C</option>
+                    
+                </select><br>
+                <input type="radio" name="res" value="YES">YES<br>
+                <input type="radio" name="res" value="NO">NO<br>
+            </div>
+    
+            <div><input type="submit" value="submit"></div><br>
+    
+    
+    
+    
+    
+    
+            <div><lable><input type="date" name="name" </lable>
+                <input type="submit" value="submit"><br><br><br>
+            </div>
+        </form>
+    </div>
+    
+    <footer>
+        <div class="footer">
+            <p>htis is</p>
+
+        </div>
+    </footer>
+    
+</body>
+</html>
